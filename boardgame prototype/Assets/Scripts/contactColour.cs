@@ -6,14 +6,15 @@ public class contactColour : MonoBehaviour
 {
     public Color Color { get; private set; }
 
-    float redScore = 0.0f;
-    float greenScore = 0.0f;
-    float blueScore = 0.0f;
-    float yellowScore = 0.0f;
-    bool colourRed = false;
-    bool colourGreen = false;
-    bool colourBlue = false;
-    bool colourYellow = false;
+   public float redScore = 0.0f;
+   public float greenScore = 0.0f;
+   public float blueScore = 0.0f;
+   public float yellowScore = 0.0f;
+   public float tileCount = 0.0f;
+   public bool colourRed = false;
+   public bool colourGreen = false;
+   public bool colourBlue = false;
+   public bool colourYellow = false;
     // public Color color = Color.red;
 
     private void OnTriggerEnter(Collider collision)
@@ -22,28 +23,36 @@ public class contactColour : MonoBehaviour
         {
             var cubeRenderer = gameObject.GetComponent<Renderer>();
             cubeRenderer.material.SetColor("_Color", Color.red);
-            bool colourRed = true;
+            colourRed = true;
             Debug.Log("This is Red!");
-            
-            if(colourRed == true)
-            {
-                redScore = redScore + 1;
-                Debug.Log("Red Score is: " + redScore);
-            }
-            
         }
+       // if (colourRed == true)
+       // {
+       //     redScore = redScore + 1;
+       //     Debug.Log("Red Score is: " + redScore);
+       // }
+
 
         if (collision.gameObject.tag == "Player2")//on contact with the Green player, will change the tile to green 
         {
             var cubeRenderer = gameObject.GetComponent<Renderer>();
             cubeRenderer.material.SetColor("_Color", Color.green);
+           // tileCount = tileCount + 1;
+            colourGreen = true;
             Debug.Log("This is Green!");
+          // if (colourGreen == true)
+          // {
+          //     greenScore = greenScore + 1;
+          //     Debug.Log("Green Score is: " + greenScore);
+          // }
         }
+        
 
-        if(collision.gameObject.tag == "Player3")//on contact with the Green player, will change the tile to blue
+        if (collision.gameObject.tag == "Player3")//on contact with the Green player, will change the tile to blue
         {
             var cubeRenderer = gameObject.GetComponent<Renderer>();
             cubeRenderer.material.SetColor("_Color", Color.blue);
+            colourBlue = true;
             Debug.Log("This is Blue!");
         }
 
@@ -51,9 +60,13 @@ public class contactColour : MonoBehaviour
         {
             var cubeRenderer = gameObject.GetComponent<Renderer>();
             cubeRenderer.material.SetColor("_Color", Color.yellow);
+            colourYellow = true;
             Debug.Log("This is Orange!");
         }
+
+        
     }
+
 
     // Start is called before the first frame update
     void Start()
