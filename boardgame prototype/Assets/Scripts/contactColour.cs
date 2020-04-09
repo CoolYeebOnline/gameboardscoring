@@ -21,10 +21,10 @@ public class contactColour : MonoBehaviour
     {
         if(collision.gameObject.tag == "Player1") //on contact with the Red player, changes the tile to red 
         {
+            colourRed = true; //triggers the bool for scoreCounter to increase 
             var cubeRenderer = gameObject.GetComponent<Renderer>();
             cubeRenderer.material.SetColor("_Color", Color.red);
-            colourRed = true;
-            Debug.Log("This is Red!");
+            Debug.Log(redScore); //updates the score 
         }
        // if (colourRed == true)
        // {
@@ -35,11 +35,11 @@ public class contactColour : MonoBehaviour
 
         if (collision.gameObject.tag == "Player2")//on contact with the Green player, will change the tile to green 
         {
+            colourGreen = true;
             var cubeRenderer = gameObject.GetComponent<Renderer>();
             cubeRenderer.material.SetColor("_Color", Color.green);
            // tileCount = tileCount + 1;
-            colourGreen = true;
-            Debug.Log("This is Green!");
+            Debug.Log(greenScore);
           // if (colourGreen == true)
           // {
           //     greenScore = greenScore + 1;
@@ -50,33 +50,18 @@ public class contactColour : MonoBehaviour
 
         if (collision.gameObject.tag == "Player3")//on contact with the Green player, will change the tile to blue
         {
+            colourBlue = true;
             var cubeRenderer = gameObject.GetComponent<Renderer>();
             cubeRenderer.material.SetColor("_Color", Color.blue);
-            colourBlue = true;
-            Debug.Log("This is Blue!");
+            Debug.Log(blueScore);
         }
 
         if(collision.gameObject.tag == "Player4")//on contact with the Orange player, the tile will change to Orange
         {
+            colourYellow = true;
             var cubeRenderer = gameObject.GetComponent<Renderer>();
             cubeRenderer.material.SetColor("_Color", Color.yellow);
-            colourYellow = true;
-            Debug.Log("This is Orange!");
+            Debug.Log(yellowScore);
         }
-
-        
-    }
-
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 }
